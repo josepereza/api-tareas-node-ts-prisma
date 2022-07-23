@@ -8,8 +8,12 @@ import UserRoutes from './Routes/UserRoutes'
 
 const app: Application = express()
 
+const allow_origin = process.env.NODE_ENV === 'production'
+    ? 'https://task-app-frontend-react.netlify.app'
+    : 'http://127.0.0.1:5173'
+
 export const CorsOptions = {
-    origin: ['*', 'http://127.0.0.1:5173', 'https://task-app-frontend-react.netlify.app'],
+    origin: allow_origin,
     credentials: true,
     cors: true
 }
